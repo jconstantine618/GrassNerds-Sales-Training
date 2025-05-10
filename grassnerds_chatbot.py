@@ -22,10 +22,19 @@ if "history" not in st.session_state:
     st.session_state.history = []
 if "selected_prospect" not in st.session_state:
     st.session_state.selected_prospect = None
+if "scoreboard" not in st.session_state:
+    st.session_state.scoreboard = []  # list of {"name": str, "score": int}
+if "trainee_name" not in st.session_state:
+    st.session_state.trainee_name = ""
 
 # Page layout
 st.set_page_config(page_title="Grass Nerds Sales Training Chatbot", layout="wide")
 st.markdown("## 🗨️ Grass Nerds Sales Training Chatbot")
+
+# Sidebar: trainee name input
+with st.sidebar:
+    st.header("Trainee Info")
+    st.session_state.trainee_name = st.text_input("Enter your name", value=st.session_state.trainee_name)
 
 # Load and select prospect
 prospects = load_prospects()
@@ -49,10 +58,10 @@ st.markdown(
 # Chat container
 for speaker, text in st.session_state.history:
     if speaker == "sales_rep":
-        icon = "💬"  # speech balloon
+        icon = "💬"
         label = "You"
     else:
-        icon = "🌱"  # seedling
+        icon = "🌱"
         label = "Prospect"
     st.chat_message(label, avatar=icon).write(text)
 
@@ -81,19 +90,33 @@ if user_input:
     st.session_state.history.append(("prospect", reply))
     st.chat_message("Prospect", avatar="🌱").write(reply)
 
-# Score section
+# Score section and leaderboard
 with st.sidebar:
     st.header("Score")
     if st.button("End Chat & Generate Score"):
-        st.write("Please wait while we are generating your score…")
-        question_count = len([msg for speaker, msg in st.session_state.history if "?" in msg and speaker == "sales_rep"])
-        score = min(MAX_SCORE, question_count * 10)
-        st.success(f"🏆 Your score: {score}/{MAX_SCORE}")
-        st.write("### Feedback")
-        st.write(
-            "• Great job asking discovery questions!\n"
-            "• Remember to close with a clear CTA tied to the prospect’s timeline."
-        )
-        if st.button("Start New Prospect"):
-            st.session_state.history = []
-            st.rerun()
+        if not st.session_state.trainee_name.strip():
+            st.warning("Please enter your name before ending the chat.")
+        else:
+            st.write("Please wait while we are generating your score…")
+            question_count = len([msg for speaker, msg in st.session_state.history if "?" in msg and speaker == "sales_rep"])
+            score = min(MAX_SCORE, question_count * 10)
+            st.success(f"🏆 Your score: {score}/{MAX_SCORE}")
+            st.write("### Feedback")
+            st.write(
+                "• Great job asking discovery questions!\n"
+                "• Remember to close with a clear CTA tied to the prospect’s timeline."
+            )
+            # Add to scoreboard
+            st.session_state.scoreboard.append({"name": st.session_state.trainee_name, "score": score})
+            # Sort top 10
+            st.session_state.scoreboard = sorted(st.session_state.scoreboard, key=lambda x: x["score"], reverse=True)[:10]
+
+    if st.button("Start New Prospect"):
+        st.session_state.history = []
+
+    # Show leaderboard
+    if st.session_state.scoreboard:
+        st.write("### 🏅 Top 10 Scores")
+        for entry in st.session_state.scoreboard:
+            st.write(f"{entry['name']}: {entry['score']}")
+
