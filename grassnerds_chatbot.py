@@ -13,7 +13,7 @@ OPENAI_KEY = os.getenv("OPENAI_API_KEY", st.secrets.get("OPENAI_API_KEY", ""))
 client = openai.OpenAI(api_key=OPENAI_KEY)
 
 MODEL = "gpt-4o"
-DATA_FILE = "prospects_grassnerds.json"
+DATA_FILE = "data/prospects_grassnerds.json"
 TRANSCRIPTS = pathlib.Path("transcripts")
 TRANSCRIPTS.mkdir(exist_ok=True)
 CLOSE_PHRASES = [
