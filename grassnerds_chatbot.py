@@ -7,7 +7,7 @@ from datetime import datetime
 
 # CONFIG
 PROSPECTS_FILE = "data/prospects_grassnerds.json"
-DB_FILE = "leaderboard.db"
+DB_FILE = str(Path(__file__).parent / "leaderboard.db")  # Persistent path
 MODEL_NAME = "gpt-4o"
 MAX_SCORE = 100
 
@@ -65,7 +65,6 @@ def get_all_chats():
     conn.close()
     return results
 
-# ---------------- FEEDBACK SUMMARY ----------------
 def get_user_feedback_summary(name):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
@@ -113,7 +112,7 @@ with st.sidebar:
     st.session_state.trainee_name = st.text_input("Enter your name")
 
 # Load prospects and select
-prospects = json.loads(Path(PROSPECTS_FILE).read_text())
+prospects = json.loads(Path(PROSPERCTS_FILE).read_text())
 prospect_names = [f"{p['name']} ({p['role']})" for p in prospects]
 selected_name = st.selectbox("Select Prospect", prospect_names)
 selected_prospect = next((p for p in prospects if f"{p['name']} ({p['role']})" == selected_name), None)
