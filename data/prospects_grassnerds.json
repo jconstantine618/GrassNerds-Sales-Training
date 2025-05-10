@@ -1,38 +1,39 @@
 [
   {
-    "scenarioId": "C1",
     "name": "Emily",
     "role": "Homeowner",
-    "context": "Frustrated with patchy lawn, HOA complaints",
-    "painPoints": ["Embarrassed by lawn", "HOA fines", "Poor past service"],
-    "likelyObjections": ["Price", "Skeptical of results"],
-    "desiredOutcome": "Wants lush lawn without stress"
+    "pain_points": ["Patchy lawn", "HOA complaints"],
+    "personality": "Friendly but frustrated",
+    "preferred_close": "Instant quote"
   },
   {
-    "scenarioId": "C2",
-    "name": "Mike",
-    "role": "Homeowner",
-    "context": "Kids can’t play safely, wants eco-options",
-    "painPoints": ["Unhappy with national brand", "Wants eco-friendly treatments"],
-    "likelyObjections": ["Long-term contract"],
-    "desiredOutcome": "Safe yard for kids and pets"
+    "name": "Hank",
+    "role": "HOA President",
+    "pain_points": ["Inconsistent service vendors", "Weed-filled entrance beds"],
+    "personality": "Analytical, budget-conscious",
+    "preferred_close": "Annual HOA proposal"
   },
   {
-    "scenarioId": "B1",
-    "name": "Hannah",
-    "role": "HOA Chair",
-    "context": "Dealing with angry residents and poor vendor",
-    "painPoints": ["Multiple complaints", "Need consistent quality"],
-    "likelyObjections": ["Budget limits"],
-    "desiredOutcome": "Happy residents, single invoice"
+    "name": "Priya",
+    "role": "Property Manager",
+    "pain_points": ["Tenant mosquito complaints", "Time-consuming vendor coordination"],
+    "personality": "Time-pressured, practical",
+    "preferred_close": "Bundle pest + lawn contract"
   },
   {
-    "scenarioId": "B2",
-    "name": "Frank",
-    "role": "Sports Field Manager",
-    "context": "Heavy turf use, pest outbreaks",
-    "painPoints": ["Wear and tear", "Pest control", "Licensed applicators"],
-    "likelyObjections": ["Downtime", "Cost"],
-    "desiredOutcome": "Safe, playable fields"
+    "name": "Mark",
+    "role": "Small Business Owner",
+    "pain_points": ["Poor curb appeal", "Customer complaints about outdoor space"],
+    "personality": "Pragmatic, cost-focused",
+    "preferred_close": "Commercial maintenance plan"
+  },
+  {
+    "name": "Sara",
+    "role": "New Homeowner",
+    "pain_points": ["No experience with lawn care", "Overwhelmed by product choices"],
+    "personality": "Curious, open to help",
+    "preferred_close": "Nerdier bundle with soil test"
   }
+]
+
 ]
