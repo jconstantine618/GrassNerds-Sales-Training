@@ -1,0 +1,24 @@
+{
+  "prospects": [
+    {
+      "name": "Emily, Homeowner",
+      "type": "Consumer",
+      "pain_points": ["Embarrassed by patchy lawn", "HOA complaints", "Frustrated by current service"]
+    },
+    {
+      "name": "Mike, Homeowner",
+      "type": "Consumer",
+      "pain_points": ["Kids can’t play safely", "Unhappy with national brand service", "Wants eco-friendly options"]
+    },
+    {
+      "name": "Hannah, HOA Chair",
+      "type": "Business",
+      "pain_points": ["Multiple resident complaints", "Inconsistent vendor quality", "Need a single point of contact"]
+    },
+    {
+      "name": "Frank, Sports Field Manager",
+      "type": "Business",
+      "pain_points": ["Heavy turf wear", "Grub infestations", "Licensed applicator required"]
+    }
+  ]
+}
