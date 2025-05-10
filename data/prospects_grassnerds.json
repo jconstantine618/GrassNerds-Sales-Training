@@ -1,6 +1,6 @@
 [
   {
-    "name": "B2B_10",
+    "name": "Laura",
     "segment": "B2B",
     "role": "Dog Park Operator",
     "pain_points": [
@@ -11,7 +11,7 @@
     "preferred_close": "Walk-through quote"
   },
   {
-    "name": "B2C_42",
+    "name": "Catherine",
     "segment": "B2C",
     "role": "Homeowner",
     "pain_points": [
@@ -22,7 +22,7 @@
     "preferred_close": "In-person estimate"
   },
   {
-    "name": "B2C_7",
+    "name": "Renee",
     "segment": "B2C",
     "role": "Gardener",
     "pain_points": [
@@ -33,7 +33,7 @@
     "preferred_close": "Soil test first"
   },
   {
-    "name": "B2C_1",
+    "name": "Thomas",
     "segment": "B2C",
     "role": "Busy Parent",
     "pain_points": [
@@ -44,7 +44,7 @@
     "preferred_close": "Soil test first"
   },
   {
-    "name": "B2B_13",
+    "name": "Amber",
     "segment": "B2B",
     "role": "Wedding Venue Owner",
     "pain_points": [
@@ -55,7 +55,7 @@
     "preferred_close": "Split invoice"
   },
   {
-    "name": "B2C_34",
+    "name": "Brendan",
     "segment": "B2C",
     "role": "Retiree",
     "pain_points": [
@@ -66,7 +66,7 @@
     "preferred_close": "Bundle seasonal contract"
   },
   {
-    "name": "B2B_46",
+    "name": "Jamie",
     "segment": "B2B",
     "role": "Real Estate Agent",
     "pain_points": [
@@ -77,7 +77,7 @@
     "preferred_close": "Premium care plan"
   },
   {
-    "name": "B2B_15",
+    "name": "Martin",
     "segment": "B2B",
     "role": "Landscaping Contractor",
     "pain_points": [
@@ -88,7 +88,7 @@
     "preferred_close": "Bundle seasonal contract"
   },
   {
-    "name": "B2C_43",
+    "name": "Debra",
     "segment": "B2C",
     "role": "New Homeowner",
     "pain_points": [
@@ -99,7 +99,7 @@
     "preferred_close": "Instant quote"
   },
   {
-    "name": "B2C_31",
+    "name": "Alejandro",
     "segment": "B2C",
     "role": "Retiree",
     "pain_points": [
@@ -110,7 +110,7 @@
     "preferred_close": "In-person estimate"
   },
   {
-    "name": "B2C_15",
+    "name": "Jeanette",
     "segment": "B2C",
     "role": "Homeowner",
     "pain_points": [
@@ -121,7 +121,7 @@
     "preferred_close": "Send proposal email"
   },
   {
-    "name": "B2B_35",
+    "name": "Christina",
     "segment": "B2B",
     "role": "Office Park Manager",
     "pain_points": [
@@ -132,7 +132,7 @@
     "preferred_close": "Premium care plan"
   },
   {
-    "name": "B2C_26",
+    "name": "Joel",
     "segment": "B2C",
     "role": "Pool Owner",
     "pain_points": [
@@ -143,7 +143,7 @@
     "preferred_close": "In-person estimate"
   },
   {
-    "name": "B2C_45",
+    "name": "Carlos",
     "segment": "B2C",
     "role": "New Homeowner",
     "pain_points": [
@@ -154,7 +154,7 @@
     "preferred_close": "Soil test first"
   },
   {
-    "name": "B2C_16",
+    "name": "James",
     "segment": "B2C",
     "role": "Eco-Friendly Buyer",
     "pain_points": [
@@ -165,7 +165,7 @@
     "preferred_close": "Bundle seasonal contract"
   },
   {
-    "name": "B2C_21",
+    "name": "Jose",
     "segment": "B2C",
     "role": "Busy Parent",
     "pain_points": [
@@ -176,7 +176,7 @@
     "preferred_close": "In-person estimate"
   },
   {
-    "name": "B2C_37",
+    "name": "Anna",
     "segment": "B2C",
     "role": "DIYer",
     "pain_points": [
@@ -187,7 +187,7 @@
     "preferred_close": "Split invoice"
   },
   {
-    "name": "B2B_41",
+    "name": "Rachael",
     "segment": "B2B",
     "role": "Landscaping Contractor",
     "pain_points": [
@@ -198,7 +198,7 @@
     "preferred_close": "Premium care plan"
   },
   {
-    "name": "B2C_40",
+    "name": "Mario",
     "segment": "B2C",
     "role": "Homeowner",
     "pain_points": [
@@ -209,7 +209,7 @@
     "preferred_close": "In-person estimate"
   },
   {
-    "name": "B2B_26",
+    "name": "Samantha",
     "segment": "B2B",
     "role": "HOA President",
     "pain_points": [
@@ -220,7 +220,7 @@
     "preferred_close": "Walk-through quote"
   },
   {
-    "name": "B2B_40",
+    "name": "Amy",
     "segment": "B2B",
     "role": "Property Manager",
     "pain_points": [
@@ -231,7 +231,7 @@
     "preferred_close": "Quarterly maintenance"
   },
   {
-    "name": "B2C_14",
+    "name": "Michelle",
     "segment": "B2C",
     "role": "Gardener",
     "pain_points": [
@@ -242,7 +242,7 @@
     "preferred_close": "Split invoice"
   },
   {
-    "name": "B2C_48",
+    "name": "Travis",
     "segment": "B2C",
     "role": "Eco-Friendly Buyer",
     "pain_points": [
@@ -253,7 +253,7 @@
     "preferred_close": "In-person estimate"
   },
   {
-    "name": "B2C_32",
+    "name": "Jenna",
     "segment": "B2C",
     "role": "Homeowner",
     "pain_points": [
@@ -264,7 +264,7 @@
     "preferred_close": "Bundle seasonal contract"
   },
   {
-    "name": "B2B_24",
+    "name": "Tammy",
     "segment": "B2B",
     "role": "Landscaping Contractor",
     "pain_points": [
@@ -275,7 +275,7 @@
     "preferred_close": "In-person estimate"
   },
   {
-    "name": "B2B_50",
+    "name": "Madison",
     "segment": "B2B",
     "role": "Landscaping Contractor",
     "pain_points": [
@@ -286,7 +286,7 @@
     "preferred_close": "Walk-through quote"
   },
   {
-    "name": "B2C_39",
+    "name": "Jeffrey",
     "segment": "B2C",
     "role": "DIYer",
     "pain_points": [
@@ -297,7 +297,7 @@
     "preferred_close": "Soil test first"
   },
   {
-    "name": "B2B_11",
+    "name": "Joshua",
     "segment": "B2B",
     "role": "HOA President",
     "pain_points": [
@@ -308,7 +308,7 @@
     "preferred_close": "Instant quote"
   },
   {
-    "name": "B2C_17",
+    "name": "Ashley",
     "segment": "B2C",
     "role": "Retiree",
     "pain_points": [
@@ -319,7 +319,7 @@
     "preferred_close": "Intro call"
   },
   {
-    "name": "B2B_5",
+    "name": "Jacob",
     "segment": "B2B",
     "role": "HOA President",
     "pain_points": [
@@ -330,7 +330,7 @@
     "preferred_close": "Instant quote"
   },
   {
-    "name": "B2B_43",
+    "name": "Diane",
     "segment": "B2B",
     "role": "Landscaping Contractor",
     "pain_points": [
@@ -341,7 +341,7 @@
     "preferred_close": "Send proposal email"
   },
   {
-    "name": "B2C_9",
+    "name": "Kimberly",
     "segment": "B2C",
     "role": "DIYer",
     "pain_points": [
@@ -352,7 +352,7 @@
     "preferred_close": "Send proposal email"
   },
   {
-    "name": "B2B_45",
+    "name": "Sierra",
     "segment": "B2B",
     "role": "Office Park Manager",
     "pain_points": [
@@ -363,7 +363,7 @@
     "preferred_close": "In-person estimate"
   },
   {
-    "name": "B2B_36",
+    "name": "Rachel",
     "segment": "B2B",
     "role": "HOA President",
     "pain_points": [
@@ -374,7 +374,7 @@
     "preferred_close": "Walk-through quote"
   },
   {
-    "name": "B2B_29",
+    "name": "Morgan",
     "segment": "B2B",
     "role": "School Grounds Director",
     "pain_points": [
@@ -385,7 +385,7 @@
     "preferred_close": "Bundle seasonal contract"
   },
   {
-    "name": "B2B_47",
+    "name": "Carolyn",
     "segment": "B2B",
     "role": "HOA President",
     "pain_points": [
@@ -396,7 +396,7 @@
     "preferred_close": "Split invoice"
   },
   {
-    "name": "B2B_17",
+    "name": "Angela",
     "segment": "B2B",
     "role": "Landscaping Contractor",
     "pain_points": [
@@ -407,7 +407,7 @@
     "preferred_close": "Instant quote"
   },
   {
-    "name": "B2C_25",
+    "name": "Kelly",
     "segment": "B2C",
     "role": "Gardener",
     "pain_points": [
@@ -418,7 +418,7 @@
     "preferred_close": "Soil test first"
   },
   {
-    "name": "B2B_2",
+    "name": "Paul",
     "segment": "B2B",
     "role": "School Grounds Director",
     "pain_points": [
@@ -429,7 +429,7 @@
     "preferred_close": "Split invoice"
   },
   {
-    "name": "B2B_22",
+    "name": "Kaitlin",
     "segment": "B2B",
     "role": "Property Manager",
     "pain_points": [
@@ -440,7 +440,7 @@
     "preferred_close": "Split invoice"
   },
   {
-    "name": "B2C_22",
+    "name": "Destiny",
     "segment": "B2C",
     "role": "Pool Owner",
     "pain_points": [
@@ -451,7 +451,7 @@
     "preferred_close": "Quarterly maintenance"
   },
   {
-    "name": "B2B_27",
+    "name": "Scott",
     "segment": "B2B",
     "role": "HOA President",
     "pain_points": [
@@ -462,7 +462,7 @@
     "preferred_close": "Bundle seasonal contract"
   },
   {
-    "name": "B2B_3",
+    "name": "Laurie",
     "segment": "B2B",
     "role": "Golf Course Groundskeeper",
     "pain_points": [
@@ -473,7 +473,7 @@
     "preferred_close": "Instant quote"
   },
   {
-    "name": "B2B_28",
+    "name": "Veronica",
     "segment": "B2B",
     "role": "Property Manager",
     "pain_points": [
@@ -484,7 +484,7 @@
     "preferred_close": "In-person estimate"
   },
   {
-    "name": "B2B_4",
+    "name": "Rebecca",
     "segment": "B2B",
     "role": "Landscaping Contractor",
     "pain_points": [
@@ -495,7 +495,7 @@
     "preferred_close": "Instant quote"
   },
   {
-    "name": "B2C_11",
+    "name": "Matthew",
     "segment": "B2C",
     "role": "Pool Owner",
     "pain_points": [
@@ -506,7 +506,7 @@
     "preferred_close": "Walk-through quote"
   },
   {
-    "name": "B2C_44",
+    "name": "Sandra",
     "segment": "B2C",
     "role": "New Homeowner",
     "pain_points": [
@@ -517,7 +517,7 @@
     "preferred_close": "Premium care plan"
   },
   {
-    "name": "B2B_9",
+    "name": "Megan",
     "segment": "B2B",
     "role": "Wedding Venue Owner",
     "pain_points": [
@@ -528,7 +528,7 @@
     "preferred_close": "Premium care plan"
   },
   {
-    "name": "B2B_7",
+    "name": "Patricia",
     "segment": "B2B",
     "role": "Office Park Manager",
     "pain_points": [
@@ -539,7 +539,7 @@
     "preferred_close": "Walk-through quote"
   },
   {
-    "name": "B2B_6",
+    "name": "Alex",
     "segment": "B2B",
     "role": "Wedding Venue Owner",
     "pain_points": [
@@ -550,7 +550,7 @@
     "preferred_close": "Walk-through quote"
   },
   {
-    "name": "B2C_10",
+    "name": "Joseph",
     "segment": "B2C",
     "role": "Gardener",
     "pain_points": [
@@ -561,7 +561,7 @@
     "preferred_close": "Send proposal email"
   },
   {
-    "name": "B2C_6",
+    "name": "Terry",
     "segment": "B2C",
     "role": "New Homeowner",
     "pain_points": [
@@ -572,7 +572,7 @@
     "preferred_close": "Instant quote"
   },
   {
-    "name": "B2B_1",
+    "name": "April",
     "segment": "B2B",
     "role": "Landscaping Contractor",
     "pain_points": [
@@ -583,7 +583,7 @@
     "preferred_close": "Bundle seasonal contract"
   },
   {
-    "name": "B2C_2",
+    "name": "Kristen",
     "segment": "B2C",
     "role": "DIYer",
     "pain_points": [
@@ -594,7 +594,7 @@
     "preferred_close": "Instant quote"
   },
   {
-    "name": "B2B_21",
+    "name": "Jennifer",
     "segment": "B2B",
     "role": "HOA President",
     "pain_points": [
@@ -605,7 +605,7 @@
     "preferred_close": "Premium care plan"
   },
   {
-    "name": "B2C_41",
+    "name": "Donna",
     "segment": "B2C",
     "role": "Renter",
     "pain_points": [
@@ -616,7 +616,7 @@
     "preferred_close": "Walk-through quote"
   },
   {
-    "name": "B2C_12",
+    "name": "Lisa",
     "segment": "B2C",
     "role": "Pet Owner",
     "pain_points": [
@@ -627,7 +627,7 @@
     "preferred_close": "In-person estimate"
   },
   {
-    "name": "B2B_42",
+    "name": "Todd",
     "segment": "B2B",
     "role": "Office Park Manager",
     "pain_points": [
@@ -638,7 +638,7 @@
     "preferred_close": "Quarterly maintenance"
   },
   {
-    "name": "B2C_4",
+    "name": "Nicole",
     "segment": "B2C",
     "role": "Busy Parent",
     "pain_points": [
@@ -649,7 +649,7 @@
     "preferred_close": "Send proposal email"
   },
   {
-    "name": "B2C_29",
+    "name": "Sharon",
     "segment": "B2C",
     "role": "Busy Parent",
     "pain_points": [
@@ -660,7 +660,7 @@
     "preferred_close": "Split invoice"
   },
   {
-    "name": "B2C_20",
+    "name": "Vanessa",
     "segment": "B2C",
     "role": "Pool Owner",
     "pain_points": [
@@ -671,7 +671,7 @@
     "preferred_close": "Quarterly maintenance"
   },
   {
-    "name": "B2C_38",
+    "name": "Monique",
     "segment": "B2C",
     "role": "Pet Owner",
     "pain_points": [
@@ -682,7 +682,7 @@
     "preferred_close": "Send proposal email"
   },
   {
-    "name": "B2C_27",
+    "name": "John",
     "segment": "B2C",
     "role": "Homeowner",
     "pain_points": [
@@ -693,7 +693,7 @@
     "preferred_close": "Send proposal email"
   },
   {
-    "name": "B2C_19",
+    "name": "Mackenzie",
     "segment": "B2C",
     "role": "Pool Owner",
     "pain_points": [
@@ -704,7 +704,7 @@
     "preferred_close": "Instant quote"
   },
   {
-    "name": "B2C_35",
+    "name": "Larry",
     "segment": "B2C",
     "role": "Pet Owner",
     "pain_points": [
@@ -715,7 +715,7 @@
     "preferred_close": "Premium care plan"
   },
   {
-    "name": "B2B_39",
+    "name": "Jonathan",
     "segment": "B2B",
     "role": "Commercial Facility Manager",
     "pain_points": [
@@ -726,7 +726,7 @@
     "preferred_close": "Send proposal email"
   },
   {
-    "name": "B2B_8",
+    "name": "Sarah",
     "segment": "B2B",
     "role": "Wedding Venue Owner",
     "pain_points": [
@@ -737,7 +737,7 @@
     "preferred_close": "In-person estimate"
   },
   {
-    "name": "B2B_32",
+    "name": "Linda",
     "segment": "B2B",
     "role": "HOA President",
     "pain_points": [
@@ -748,7 +748,7 @@
     "preferred_close": "Quarterly maintenance"
   },
   {
-    "name": "B2B_14",
+    "name": "Peter",
     "segment": "B2B",
     "role": "Property Manager",
     "pain_points": [
@@ -759,7 +759,7 @@
     "preferred_close": "Bundle seasonal contract"
   },
   {
-    "name": "B2B_12",
+    "name": "Kelli",
     "segment": "B2B",
     "role": "Property Manager",
     "pain_points": [
@@ -770,7 +770,7 @@
     "preferred_close": "Instant quote"
   },
   {
-    "name": "B2C_33",
+    "name": "Cole",
     "segment": "B2C",
     "role": "Eco-Friendly Buyer",
     "pain_points": [
@@ -781,7 +781,7 @@
     "preferred_close": "Split invoice"
   },
   {
-    "name": "B2C_23",
+    "name": "Elizabeth",
     "segment": "B2C",
     "role": "Renter",
     "pain_points": [
@@ -792,7 +792,7 @@
     "preferred_close": "Walk-through quote"
   },
   {
-    "name": "B2B_20",
+    "name": "Tyler",
     "segment": "B2B",
     "role": "Property Manager",
     "pain_points": [
@@ -803,7 +803,7 @@
     "preferred_close": "Walk-through quote"
   },
   {
-    "name": "B2B_23",
+    "name": "Richard",
     "segment": "B2B",
     "role": "Landscaping Contractor",
     "pain_points": [
@@ -814,7 +814,7 @@
     "preferred_close": "Quarterly maintenance"
   },
   {
-    "name": "B2C_13",
+    "name": "Teresa",
     "segment": "B2C",
     "role": "Retiree",
     "pain_points": [
@@ -825,7 +825,7 @@
     "preferred_close": "Send proposal email"
   },
   {
-    "name": "B2B_30",
+    "name": "Adrian",
     "segment": "B2B",
     "role": "Real Estate Agent",
     "pain_points": [
@@ -836,7 +836,7 @@
     "preferred_close": "Split invoice"
   },
   {
-    "name": "B2B_49",
+    "name": "Dakota",
     "segment": "B2B",
     "role": "Landscaping Contractor",
     "pain_points": [
@@ -847,7 +847,7 @@
     "preferred_close": "Instant quote"
   },
   {
-    "name": "B2B_34",
+    "name": "Johnny",
     "segment": "B2B",
     "role": "Office Park Manager",
     "pain_points": [
@@ -858,7 +858,7 @@
     "preferred_close": "In-person estimate"
   },
   {
-    "name": "B2C_24",
+    "name": "Erika",
     "segment": "B2C",
     "role": "Eco-Friendly Buyer",
     "pain_points": [
@@ -869,7 +869,7 @@
     "preferred_close": "Bundle seasonal contract"
   },
   {
-    "name": "B2B_18",
+    "name": "Chad",
     "segment": "B2B",
     "role": "HOA President",
     "pain_points": [
@@ -880,7 +880,7 @@
     "preferred_close": "Walk-through quote"
   },
   {
-    "name": "B2B_19",
+    "name": "Maria",
     "segment": "B2B",
     "role": "Wedding Venue Owner",
     "pain_points": [
@@ -891,7 +891,7 @@
     "preferred_close": "Send proposal email"
   },
   {
-    "name": "B2C_50",
+    "name": "Justin",
     "segment": "B2C",
     "role": "Renter",
     "pain_points": [
@@ -902,7 +902,7 @@
     "preferred_close": "Bundle seasonal contract"
   },
   {
-    "name": "B2B_44",
+    "name": "Gabriel",
     "segment": "B2B",
     "role": "Commercial Facility Manager",
     "pain_points": [
@@ -913,7 +913,7 @@
     "preferred_close": "Intro call"
   },
   {
-    "name": "B2B_25",
+    "name": "Daniel",
     "segment": "B2B",
     "role": "Real Estate Agent",
     "pain_points": [
@@ -924,7 +924,7 @@
     "preferred_close": "Walk-through quote"
   },
   {
-    "name": "B2C_49",
+    "name": "Jesse",
     "segment": "B2C",
     "role": "Retiree",
     "pain_points": [
@@ -935,7 +935,7 @@
     "preferred_close": "Bundle seasonal contract"
   },
   {
-    "name": "B2B_33",
+    "name": "Maureen",
     "segment": "B2B",
     "role": "Commercial Facility Manager",
     "pain_points": [
@@ -946,7 +946,7 @@
     "preferred_close": "Quarterly maintenance"
   },
   {
-    "name": "B2C_18",
+    "name": "Madeline",
     "segment": "B2C",
     "role": "New Homeowner",
     "pain_points": [
@@ -957,7 +957,7 @@
     "preferred_close": "Intro call"
   },
   {
-    "name": "B2C_46",
+    "name": "Patrick",
     "segment": "B2C",
     "role": "Pool Owner",
     "pain_points": [
@@ -968,7 +968,7 @@
     "preferred_close": "Walk-through quote"
   },
   {
-    "name": "B2C_5",
+    "name": "Monica",
     "segment": "B2C",
     "role": "Homeowner",
     "pain_points": [
@@ -979,7 +979,7 @@
     "preferred_close": "Soil test first"
   },
   {
-    "name": "B2B_16",
+    "name": "Heather",
     "segment": "B2B",
     "role": "Commercial Facility Manager",
     "pain_points": [
@@ -990,7 +990,7 @@
     "preferred_close": "Send proposal email"
   },
   {
-    "name": "B2B_38",
+    "name": "Rebekah",
     "segment": "B2B",
     "role": "Property Manager",
     "pain_points": [
@@ -1001,7 +1001,7 @@
     "preferred_close": "Walk-through quote"
   },
   {
-    "name": "B2B_37",
+    "name": "Kathleen",
     "segment": "B2B",
     "role": "HOA President",
     "pain_points": [
@@ -1012,7 +1012,7 @@
     "preferred_close": "Quarterly maintenance"
   },
   {
-    "name": "B2C_8",
+    "name": "Katrina",
     "segment": "B2C",
     "role": "Busy Parent",
     "pain_points": [
@@ -1023,7 +1023,7 @@
     "preferred_close": "Split invoice"
   },
   {
-    "name": "B2B_48",
+    "name": "Ronald",
     "segment": "B2B",
     "role": "Real Estate Agent",
     "pain_points": [
@@ -1034,7 +1034,7 @@
     "preferred_close": "Intro call"
   },
   {
-    "name": "B2B_31",
+    "name": "Jeremy",
     "segment": "B2B",
     "role": "Office Park Manager",
     "pain_points": [
@@ -1045,7 +1045,7 @@
     "preferred_close": "Send proposal email"
   },
   {
-    "name": "B2C_47",
+    "name": "Logan",
     "segment": "B2C",
     "role": "Retiree",
     "pain_points": [
@@ -1056,7 +1056,7 @@
     "preferred_close": "Bundle seasonal contract"
   },
   {
-    "name": "B2C_36",
+    "name": "Lindsey",
     "segment": "B2C",
     "role": "Busy Parent",
     "pain_points": [
@@ -1067,7 +1067,7 @@
     "preferred_close": "Split invoice"
   },
   {
-    "name": "B2C_3",
+    "name": "Cory",
     "segment": "B2C",
     "role": "Busy Parent",
     "pain_points": [
@@ -1078,7 +1078,7 @@
     "preferred_close": "In-person estimate"
   },
   {
-    "name": "B2C_28",
+    "name": "Emma",
     "segment": "B2C",
     "role": "Homeowner",
     "pain_points": [
@@ -1089,7 +1089,7 @@
     "preferred_close": "Instant quote"
   },
   {
-    "name": "B2C_30",
+    "name": "Jason",
     "segment": "B2C",
     "role": "New Homeowner",
     "pain_points": [
