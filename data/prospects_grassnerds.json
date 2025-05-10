@@ -1,38 +1,1102 @@
 [
   {
-    "name": "Emily",
+    "name": "B2B_10",
+    "segment": "B2B",
+    "role": "Dog Park Operator",
+    "pain_points": [
+      "Patchy zones from pet wear"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "medium",
+    "preferred_close": "Walk-through quote"
+  },
+  {
+    "name": "B2C_42",
+    "segment": "B2C",
     "role": "Homeowner",
-    "pain_points": ["Patchy lawn", "HOA complaints"],
-    "personality": "Friendly but frustrated",
+    "pain_points": [
+      "Frustrated with patchy lawn"
+    ],
+    "personality": "Busy and impatient",
+    "difficulty": "hard",
+    "preferred_close": "In-person estimate"
+  },
+  {
+    "name": "B2C_7",
+    "segment": "B2C",
+    "role": "Gardener",
+    "pain_points": [
+      "Wants perfect soil pH"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "easy",
+    "preferred_close": "Soil test first"
+  },
+  {
+    "name": "B2C_1",
+    "segment": "B2C",
+    "role": "Busy Parent",
+    "pain_points": [
+      "Has no time to mow"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "hard",
+    "preferred_close": "Soil test first"
+  },
+  {
+    "name": "B2B_13",
+    "segment": "B2B",
+    "role": "Wedding Venue Owner",
+    "pain_points": [
+      "Needs picture-perfect lawn"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "hard",
+    "preferred_close": "Split invoice"
+  },
+  {
+    "name": "B2C_34",
+    "segment": "B2C",
+    "role": "Retiree",
+    "pain_points": [
+      "Needs low-maintenance yard"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "hard",
+    "preferred_close": "Bundle seasonal contract"
+  },
+  {
+    "name": "B2B_46",
+    "segment": "B2B",
+    "role": "Real Estate Agent",
+    "pain_points": [
+      "Needs better curb appeal"
+    ],
+    "personality": "Enthusiastic",
+    "difficulty": "easy",
+    "preferred_close": "Premium care plan"
+  },
+  {
+    "name": "B2B_15",
+    "segment": "B2B",
+    "role": "Landscaping Contractor",
+    "pain_points": [
+      "Wants to subcontract lawn care"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "hard",
+    "preferred_close": "Bundle seasonal contract"
+  },
+  {
+    "name": "B2C_43",
+    "segment": "B2C",
+    "role": "New Homeowner",
+    "pain_points": [
+      "Unsure how to start lawn care"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "hard",
     "preferred_close": "Instant quote"
   },
   {
-    "name": "Hank",
-    "role": "HOA President",
-    "pain_points": ["Inconsistent service vendors", "Weed-filled entrance beds"],
-    "personality": "Analytical, budget-conscious",
-    "preferred_close": "Annual HOA proposal"
+    "name": "B2C_31",
+    "segment": "B2C",
+    "role": "Retiree",
+    "pain_points": [
+      "Needs low-maintenance yard"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "hard",
+    "preferred_close": "In-person estimate"
   },
   {
-    "name": "Priya",
-    "role": "Property Manager",
-    "pain_points": ["Tenant mosquito complaints", "Time-consuming vendor coordination"],
-    "personality": "Time-pressured, practical",
-    "preferred_close": "Bundle pest + lawn contract"
+    "name": "B2C_15",
+    "segment": "B2C",
+    "role": "Homeowner",
+    "pain_points": [
+      "Frustrated with patchy lawn"
+    ],
+    "personality": "Friendly but frustrated",
+    "difficulty": "hard",
+    "preferred_close": "Send proposal email"
   },
   {
-    "name": "Jason",
+    "name": "B2B_35",
+    "segment": "B2B",
+    "role": "Office Park Manager",
+    "pain_points": [
+      "Curb appeal tied to leasing rates"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "easy",
+    "preferred_close": "Premium care plan"
+  },
+  {
+    "name": "B2C_26",
+    "segment": "B2C",
+    "role": "Pool Owner",
+    "pain_points": [
+      "Fighting lawn flooding near pool"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "hard",
+    "preferred_close": "In-person estimate"
+  },
+  {
+    "name": "B2C_45",
+    "segment": "B2C",
     "role": "New Homeowner",
-    "pain_points": ["Unsure how to start", "Frustrated with DIY results"],
-    "personality": "Cautious, cost-aware",
-    "preferred_close": "Soil test + intro call"
+    "pain_points": [
+      "Unsure how to start lawn care"
+    ],
+    "personality": "Low-trust",
+    "difficulty": "hard",
+    "preferred_close": "Soil test first"
   },
   {
-    "name": "Samantha",
+    "name": "B2C_16",
+    "segment": "B2C",
+    "role": "Eco-Friendly Buyer",
+    "pain_points": [
+      "Wants non-toxic treatment options"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "medium",
+    "preferred_close": "Bundle seasonal contract"
+  },
+  {
+    "name": "B2C_21",
+    "segment": "B2C",
+    "role": "Busy Parent",
+    "pain_points": [
+      "Has no time to mow"
+    ],
+    "personality": "Analytical and cautious",
+    "difficulty": "hard",
+    "preferred_close": "In-person estimate"
+  },
+  {
+    "name": "B2C_37",
+    "segment": "B2C",
+    "role": "DIYer",
+    "pain_points": [
+      "Tired of inconsistent DIY results"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "hard",
+    "preferred_close": "Split invoice"
+  },
+  {
+    "name": "B2B_41",
+    "segment": "B2B",
+    "role": "Landscaping Contractor",
+    "pain_points": [
+      "Wants to subcontract lawn care"
+    ],
+    "personality": "Friendly but frustrated",
+    "difficulty": "hard",
+    "preferred_close": "Premium care plan"
+  },
+  {
+    "name": "B2C_40",
+    "segment": "B2C",
+    "role": "Homeowner",
+    "pain_points": [
+      "Frustrated with patchy lawn"
+    ],
+    "personality": "Enthusiastic",
+    "difficulty": "medium",
+    "preferred_close": "In-person estimate"
+  },
+  {
+    "name": "B2B_26",
+    "segment": "B2B",
+    "role": "HOA President",
+    "pain_points": [
+      "Weed control inconsistent"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "medium",
+    "preferred_close": "Walk-through quote"
+  },
+  {
+    "name": "B2B_40",
+    "segment": "B2B",
+    "role": "Property Manager",
+    "pain_points": [
+      "Tenants complain about lawn"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "easy",
+    "preferred_close": "Quarterly maintenance"
+  },
+  {
+    "name": "B2C_14",
+    "segment": "B2C",
+    "role": "Gardener",
+    "pain_points": [
+      "Wants perfect soil pH"
+    ],
+    "personality": "Cost-sensitive",
+    "difficulty": "hard",
+    "preferred_close": "Split invoice"
+  },
+  {
+    "name": "B2C_48",
+    "segment": "B2C",
+    "role": "Eco-Friendly Buyer",
+    "pain_points": [
+      "Wants non-toxic treatment options"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "hard",
+    "preferred_close": "In-person estimate"
+  },
+  {
+    "name": "B2C_32",
+    "segment": "B2C",
+    "role": "Homeowner",
+    "pain_points": [
+      "Frustrated with patchy lawn"
+    ],
+    "personality": "Busy and impatient",
+    "difficulty": "medium",
+    "preferred_close": "Bundle seasonal contract"
+  },
+  {
+    "name": "B2B_24",
+    "segment": "B2B",
+    "role": "Landscaping Contractor",
+    "pain_points": [
+      "Wants to subcontract lawn care"
+    ],
+    "personality": "Enthusiastic",
+    "difficulty": "easy",
+    "preferred_close": "In-person estimate"
+  },
+  {
+    "name": "B2B_50",
+    "segment": "B2B",
+    "role": "Landscaping Contractor",
+    "pain_points": [
+      "Wants to subcontract lawn care"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "hard",
+    "preferred_close": "Walk-through quote"
+  },
+  {
+    "name": "B2C_39",
+    "segment": "B2C",
+    "role": "DIYer",
+    "pain_points": [
+      "Tired of inconsistent DIY results"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "medium",
+    "preferred_close": "Soil test first"
+  },
+  {
+    "name": "B2B_11",
+    "segment": "B2B",
+    "role": "HOA President",
+    "pain_points": [
+      "Weed control inconsistent"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "easy",
+    "preferred_close": "Instant quote"
+  },
+  {
+    "name": "B2C_17",
+    "segment": "B2C",
+    "role": "Retiree",
+    "pain_points": [
+      "Needs low-maintenance yard"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "medium",
+    "preferred_close": "Intro call"
+  },
+  {
+    "name": "B2B_5",
+    "segment": "B2B",
+    "role": "HOA President",
+    "pain_points": [
+      "Weed control inconsistent"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "easy",
+    "preferred_close": "Instant quote"
+  },
+  {
+    "name": "B2B_43",
+    "segment": "B2B",
+    "role": "Landscaping Contractor",
+    "pain_points": [
+      "Wants to subcontract lawn care"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "medium",
+    "preferred_close": "Send proposal email"
+  },
+  {
+    "name": "B2C_9",
+    "segment": "B2C",
+    "role": "DIYer",
+    "pain_points": [
+      "Tired of inconsistent DIY results"
+    ],
+    "personality": "Friendly but frustrated",
+    "difficulty": "medium",
+    "preferred_close": "Send proposal email"
+  },
+  {
+    "name": "B2B_45",
+    "segment": "B2B",
+    "role": "Office Park Manager",
+    "pain_points": [
+      "Curb appeal tied to leasing rates"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "easy",
+    "preferred_close": "In-person estimate"
+  },
+  {
+    "name": "B2B_36",
+    "segment": "B2B",
+    "role": "HOA President",
+    "pain_points": [
+      "Weed control inconsistent"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "medium",
+    "preferred_close": "Walk-through quote"
+  },
+  {
+    "name": "B2B_29",
+    "segment": "B2B",
+    "role": "School Grounds Director",
+    "pain_points": [
+      "Safe play area required"
+    ],
+    "personality": "Friendly but frustrated",
+    "difficulty": "easy",
+    "preferred_close": "Bundle seasonal contract"
+  },
+  {
+    "name": "B2B_47",
+    "segment": "B2B",
+    "role": "HOA President",
+    "pain_points": [
+      "Weed control inconsistent"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "easy",
+    "preferred_close": "Split invoice"
+  },
+  {
+    "name": "B2B_17",
+    "segment": "B2B",
+    "role": "Landscaping Contractor",
+    "pain_points": [
+      "Wants to subcontract lawn care"
+    ],
+    "personality": "Low-trust",
+    "difficulty": "easy",
+    "preferred_close": "Instant quote"
+  },
+  {
+    "name": "B2C_25",
+    "segment": "B2C",
+    "role": "Gardener",
+    "pain_points": [
+      "Wants perfect soil pH"
+    ],
+    "personality": "Busy and impatient",
+    "difficulty": "hard",
+    "preferred_close": "Soil test first"
+  },
+  {
+    "name": "B2B_2",
+    "segment": "B2B",
+    "role": "School Grounds Director",
+    "pain_points": [
+      "Safe play area required"
+    ],
+    "personality": "Low-trust",
+    "difficulty": "easy",
+    "preferred_close": "Split invoice"
+  },
+  {
+    "name": "B2B_22",
+    "segment": "B2B",
+    "role": "Property Manager",
+    "pain_points": [
+      "Tenants complain about lawn"
+    ],
+    "personality": "Friendly but frustrated",
+    "difficulty": "medium",
+    "preferred_close": "Split invoice"
+  },
+  {
+    "name": "B2C_22",
+    "segment": "B2C",
+    "role": "Pool Owner",
+    "pain_points": [
+      "Fighting lawn flooding near pool"
+    ],
+    "personality": "Busy and impatient",
+    "difficulty": "hard",
+    "preferred_close": "Quarterly maintenance"
+  },
+  {
+    "name": "B2B_27",
+    "segment": "B2B",
+    "role": "HOA President",
+    "pain_points": [
+      "Weed control inconsistent"
+    ],
+    "personality": "Analytical and cautious",
+    "difficulty": "medium",
+    "preferred_close": "Bundle seasonal contract"
+  },
+  {
+    "name": "B2B_3",
+    "segment": "B2B",
+    "role": "Golf Course Groundskeeper",
+    "pain_points": [
+      "Needs consistent turf health"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "hard",
+    "preferred_close": "Instant quote"
+  },
+  {
+    "name": "B2B_28",
+    "segment": "B2B",
+    "role": "Property Manager",
+    "pain_points": [
+      "Tenants complain about lawn"
+    ],
+    "personality": "Busy and impatient",
+    "difficulty": "hard",
+    "preferred_close": "In-person estimate"
+  },
+  {
+    "name": "B2B_4",
+    "segment": "B2B",
+    "role": "Landscaping Contractor",
+    "pain_points": [
+      "Wants to subcontract lawn care"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "easy",
+    "preferred_close": "Instant quote"
+  },
+  {
+    "name": "B2C_11",
+    "segment": "B2C",
+    "role": "Pool Owner",
+    "pain_points": [
+      "Fighting lawn flooding near pool"
+    ],
+    "personality": "Cost-sensitive",
+    "difficulty": "hard",
+    "preferred_close": "Walk-through quote"
+  },
+  {
+    "name": "B2C_44",
+    "segment": "B2C",
+    "role": "New Homeowner",
+    "pain_points": [
+      "Unsure how to start lawn care"
+    ],
+    "personality": "Cost-sensitive",
+    "difficulty": "medium",
+    "preferred_close": "Premium care plan"
+  },
+  {
+    "name": "B2B_9",
+    "segment": "B2B",
+    "role": "Wedding Venue Owner",
+    "pain_points": [
+      "Needs picture-perfect lawn"
+    ],
+    "personality": "Enthusiastic",
+    "difficulty": "easy",
+    "preferred_close": "Premium care plan"
+  },
+  {
+    "name": "B2B_7",
+    "segment": "B2B",
+    "role": "Office Park Manager",
+    "pain_points": [
+      "Curb appeal tied to leasing rates"
+    ],
+    "personality": "Friendly but frustrated",
+    "difficulty": "hard",
+    "preferred_close": "Walk-through quote"
+  },
+  {
+    "name": "B2B_6",
+    "segment": "B2B",
+    "role": "Wedding Venue Owner",
+    "pain_points": [
+      "Needs picture-perfect lawn"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "medium",
+    "preferred_close": "Walk-through quote"
+  },
+  {
+    "name": "B2C_10",
+    "segment": "B2C",
+    "role": "Gardener",
+    "pain_points": [
+      "Wants perfect soil pH"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "easy",
+    "preferred_close": "Send proposal email"
+  },
+  {
+    "name": "B2C_6",
+    "segment": "B2C",
+    "role": "New Homeowner",
+    "pain_points": [
+      "Unsure how to start lawn care"
+    ],
+    "personality": "Analytical and cautious",
+    "difficulty": "medium",
+    "preferred_close": "Instant quote"
+  },
+  {
+    "name": "B2B_1",
+    "segment": "B2B",
+    "role": "Landscaping Contractor",
+    "pain_points": [
+      "Wants to subcontract lawn care"
+    ],
+    "personality": "Friendly but frustrated",
+    "difficulty": "easy",
+    "preferred_close": "Bundle seasonal contract"
+  },
+  {
+    "name": "B2C_2",
+    "segment": "B2C",
+    "role": "DIYer",
+    "pain_points": [
+      "Tired of inconsistent DIY results"
+    ],
+    "personality": "Enthusiastic",
+    "difficulty": "easy",
+    "preferred_close": "Instant quote"
+  },
+  {
+    "name": "B2B_21",
+    "segment": "B2B",
+    "role": "HOA President",
+    "pain_points": [
+      "Weed control inconsistent"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "easy",
+    "preferred_close": "Premium care plan"
+  },
+  {
+    "name": "B2C_41",
+    "segment": "B2C",
+    "role": "Renter",
+    "pain_points": [
+      "Looking for affordable curb appeal"
+    ],
+    "personality": "Friendly but frustrated",
+    "difficulty": "hard",
+    "preferred_close": "Walk-through quote"
+  },
+  {
+    "name": "B2C_12",
+    "segment": "B2C",
+    "role": "Pet Owner",
+    "pain_points": [
+      "Worried about pet-safe lawn treatments"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "hard",
+    "preferred_close": "In-person estimate"
+  },
+  {
+    "name": "B2B_42",
+    "segment": "B2B",
+    "role": "Office Park Manager",
+    "pain_points": [
+      "Curb appeal tied to leasing rates"
+    ],
+    "personality": "Enthusiastic",
+    "difficulty": "easy",
+    "preferred_close": "Quarterly maintenance"
+  },
+  {
+    "name": "B2C_4",
+    "segment": "B2C",
+    "role": "Busy Parent",
+    "pain_points": [
+      "Has no time to mow"
+    ],
+    "personality": "Busy and impatient",
+    "difficulty": "hard",
+    "preferred_close": "Send proposal email"
+  },
+  {
+    "name": "B2C_29",
+    "segment": "B2C",
+    "role": "Busy Parent",
+    "pain_points": [
+      "Has no time to mow"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "hard",
+    "preferred_close": "Split invoice"
+  },
+  {
+    "name": "B2C_20",
+    "segment": "B2C",
+    "role": "Pool Owner",
+    "pain_points": [
+      "Fighting lawn flooding near pool"
+    ],
+    "personality": "Cost-sensitive",
+    "difficulty": "medium",
+    "preferred_close": "Quarterly maintenance"
+  },
+  {
+    "name": "B2C_38",
+    "segment": "B2C",
+    "role": "Pet Owner",
+    "pain_points": [
+      "Worried about pet-safe lawn treatments"
+    ],
+    "personality": "Enthusiastic",
+    "difficulty": "hard",
+    "preferred_close": "Send proposal email"
+  },
+  {
+    "name": "B2C_27",
+    "segment": "B2C",
+    "role": "Homeowner",
+    "pain_points": [
+      "Frustrated with patchy lawn"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "medium",
+    "preferred_close": "Send proposal email"
+  },
+  {
+    "name": "B2C_19",
+    "segment": "B2C",
+    "role": "Pool Owner",
+    "pain_points": [
+      "Fighting lawn flooding near pool"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "hard",
+    "preferred_close": "Instant quote"
+  },
+  {
+    "name": "B2C_35",
+    "segment": "B2C",
+    "role": "Pet Owner",
+    "pain_points": [
+      "Worried about pet-safe lawn treatments"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "medium",
+    "preferred_close": "Premium care plan"
+  },
+  {
+    "name": "B2B_39",
+    "segment": "B2B",
+    "role": "Commercial Facility Manager",
+    "pain_points": [
+      "Needs professional maintenance"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "medium",
+    "preferred_close": "Send proposal email"
+  },
+  {
+    "name": "B2B_8",
+    "segment": "B2B",
+    "role": "Wedding Venue Owner",
+    "pain_points": [
+      "Needs picture-perfect lawn"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "medium",
+    "preferred_close": "In-person estimate"
+  },
+  {
+    "name": "B2B_32",
+    "segment": "B2B",
+    "role": "HOA President",
+    "pain_points": [
+      "Weed control inconsistent"
+    ],
+    "personality": "Enthusiastic",
+    "difficulty": "easy",
+    "preferred_close": "Quarterly maintenance"
+  },
+  {
+    "name": "B2B_14",
+    "segment": "B2B",
+    "role": "Property Manager",
+    "pain_points": [
+      "Tenants complain about lawn"
+    ],
+    "personality": "Busy and impatient",
+    "difficulty": "hard",
+    "preferred_close": "Bundle seasonal contract"
+  },
+  {
+    "name": "B2B_12",
+    "segment": "B2B",
+    "role": "Property Manager",
+    "pain_points": [
+      "Tenants complain about lawn"
+    ],
+    "personality": "Low-trust",
+    "difficulty": "hard",
+    "preferred_close": "Instant quote"
+  },
+  {
+    "name": "B2C_33",
+    "segment": "B2C",
+    "role": "Eco-Friendly Buyer",
+    "pain_points": [
+      "Wants non-toxic treatment options"
+    ],
+    "personality": "Friendly but frustrated",
+    "difficulty": "hard",
+    "preferred_close": "Split invoice"
+  },
+  {
+    "name": "B2C_23",
+    "segment": "B2C",
+    "role": "Renter",
+    "pain_points": [
+      "Looking for affordable curb appeal"
+    ],
+    "personality": "Analytical and cautious",
+    "difficulty": "easy",
+    "preferred_close": "Walk-through quote"
+  },
+  {
+    "name": "B2B_20",
+    "segment": "B2B",
+    "role": "Property Manager",
+    "pain_points": [
+      "Tenants complain about lawn"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "medium",
+    "preferred_close": "Walk-through quote"
+  },
+  {
+    "name": "B2B_23",
+    "segment": "B2B",
+    "role": "Landscaping Contractor",
+    "pain_points": [
+      "Wants to subcontract lawn care"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "medium",
+    "preferred_close": "Quarterly maintenance"
+  },
+  {
+    "name": "B2C_13",
+    "segment": "B2C",
+    "role": "Retiree",
+    "pain_points": [
+      "Needs low-maintenance yard"
+    ],
+    "personality": "Busy and impatient",
+    "difficulty": "easy",
+    "preferred_close": "Send proposal email"
+  },
+  {
+    "name": "B2B_30",
+    "segment": "B2B",
     "role": "Real Estate Agent",
-    "pain_points": ["Curb appeal issues before open house", "Time-sensitive closings"],
-    "personality": "Efficient, results-driven",
-    "preferred_close": "Quick quote with photo examples"
+    "pain_points": [
+      "Needs better curb appeal"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "easy",
+    "preferred_close": "Split invoice"
+  },
+  {
+    "name": "B2B_49",
+    "segment": "B2B",
+    "role": "Landscaping Contractor",
+    "pain_points": [
+      "Wants to subcontract lawn care"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "easy",
+    "preferred_close": "Instant quote"
+  },
+  {
+    "name": "B2B_34",
+    "segment": "B2B",
+    "role": "Office Park Manager",
+    "pain_points": [
+      "Curb appeal tied to leasing rates"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "easy",
+    "preferred_close": "In-person estimate"
+  },
+  {
+    "name": "B2C_24",
+    "segment": "B2C",
+    "role": "Eco-Friendly Buyer",
+    "pain_points": [
+      "Wants non-toxic treatment options"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "hard",
+    "preferred_close": "Bundle seasonal contract"
+  },
+  {
+    "name": "B2B_18",
+    "segment": "B2B",
+    "role": "HOA President",
+    "pain_points": [
+      "Weed control inconsistent"
+    ],
+    "personality": "Cost-sensitive",
+    "difficulty": "easy",
+    "preferred_close": "Walk-through quote"
+  },
+  {
+    "name": "B2B_19",
+    "segment": "B2B",
+    "role": "Wedding Venue Owner",
+    "pain_points": [
+      "Needs picture-perfect lawn"
+    ],
+    "personality": "Cost-sensitive",
+    "difficulty": "hard",
+    "preferred_close": "Send proposal email"
+  },
+  {
+    "name": "B2C_50",
+    "segment": "B2C",
+    "role": "Renter",
+    "pain_points": [
+      "Looking for affordable curb appeal"
+    ],
+    "personality": "Enthusiastic",
+    "difficulty": "easy",
+    "preferred_close": "Bundle seasonal contract"
+  },
+  {
+    "name": "B2B_44",
+    "segment": "B2B",
+    "role": "Commercial Facility Manager",
+    "pain_points": [
+      "Needs professional maintenance"
+    ],
+    "personality": "Friendly but frustrated",
+    "difficulty": "medium",
+    "preferred_close": "Intro call"
+  },
+  {
+    "name": "B2B_25",
+    "segment": "B2B",
+    "role": "Real Estate Agent",
+    "pain_points": [
+      "Needs better curb appeal"
+    ],
+    "personality": "Busy and impatient",
+    "difficulty": "hard",
+    "preferred_close": "Walk-through quote"
+  },
+  {
+    "name": "B2C_49",
+    "segment": "B2C",
+    "role": "Retiree",
+    "pain_points": [
+      "Needs low-maintenance yard"
+    ],
+    "personality": "Friendly but frustrated",
+    "difficulty": "easy",
+    "preferred_close": "Bundle seasonal contract"
+  },
+  {
+    "name": "B2B_33",
+    "segment": "B2B",
+    "role": "Commercial Facility Manager",
+    "pain_points": [
+      "Needs professional maintenance"
+    ],
+    "personality": "Enthusiastic",
+    "difficulty": "medium",
+    "preferred_close": "Quarterly maintenance"
+  },
+  {
+    "name": "B2C_18",
+    "segment": "B2C",
+    "role": "New Homeowner",
+    "pain_points": [
+      "Unsure how to start lawn care"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "easy",
+    "preferred_close": "Intro call"
+  },
+  {
+    "name": "B2C_46",
+    "segment": "B2C",
+    "role": "Pool Owner",
+    "pain_points": [
+      "Fighting lawn flooding near pool"
+    ],
+    "personality": "Rushed but curious",
+    "difficulty": "medium",
+    "preferred_close": "Walk-through quote"
+  },
+  {
+    "name": "B2C_5",
+    "segment": "B2C",
+    "role": "Homeowner",
+    "pain_points": [
+      "Frustrated with patchy lawn"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "medium",
+    "preferred_close": "Soil test first"
+  },
+  {
+    "name": "B2B_16",
+    "segment": "B2B",
+    "role": "Commercial Facility Manager",
+    "pain_points": [
+      "Needs professional maintenance"
+    ],
+    "personality": "Low-trust",
+    "difficulty": "hard",
+    "preferred_close": "Send proposal email"
+  },
+  {
+    "name": "B2B_38",
+    "segment": "B2B",
+    "role": "Property Manager",
+    "pain_points": [
+      "Tenants complain about lawn"
+    ],
+    "personality": "Enthusiastic",
+    "difficulty": "easy",
+    "preferred_close": "Walk-through quote"
+  },
+  {
+    "name": "B2B_37",
+    "segment": "B2B",
+    "role": "HOA President",
+    "pain_points": [
+      "Weed control inconsistent"
+    ],
+    "personality": "Friendly but frustrated",
+    "difficulty": "easy",
+    "preferred_close": "Quarterly maintenance"
+  },
+  {
+    "name": "B2C_8",
+    "segment": "B2C",
+    "role": "Busy Parent",
+    "pain_points": [
+      "Has no time to mow"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "hard",
+    "preferred_close": "Split invoice"
+  },
+  {
+    "name": "B2B_48",
+    "segment": "B2B",
+    "role": "Real Estate Agent",
+    "pain_points": [
+      "Needs better curb appeal"
+    ],
+    "personality": "Enthusiastic",
+    "difficulty": "hard",
+    "preferred_close": "Intro call"
+  },
+  {
+    "name": "B2B_31",
+    "segment": "B2B",
+    "role": "Office Park Manager",
+    "pain_points": [
+      "Curb appeal tied to leasing rates"
+    ],
+    "personality": "Friendly but frustrated",
+    "difficulty": "hard",
+    "preferred_close": "Send proposal email"
+  },
+  {
+    "name": "B2C_47",
+    "segment": "B2C",
+    "role": "Retiree",
+    "pain_points": [
+      "Needs low-maintenance yard"
+    ],
+    "personality": "Low-trust",
+    "difficulty": "medium",
+    "preferred_close": "Bundle seasonal contract"
+  },
+  {
+    "name": "B2C_36",
+    "segment": "B2C",
+    "role": "Busy Parent",
+    "pain_points": [
+      "Has no time to mow"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "medium",
+    "preferred_close": "Split invoice"
+  },
+  {
+    "name": "B2C_3",
+    "segment": "B2C",
+    "role": "Busy Parent",
+    "pain_points": [
+      "Has no time to mow"
+    ],
+    "personality": "Detail-oriented",
+    "difficulty": "hard",
+    "preferred_close": "In-person estimate"
+  },
+  {
+    "name": "B2C_28",
+    "segment": "B2C",
+    "role": "Homeowner",
+    "pain_points": [
+      "Frustrated with patchy lawn"
+    ],
+    "personality": "Skeptical but polite",
+    "difficulty": "easy",
+    "preferred_close": "Instant quote"
+  },
+  {
+    "name": "B2C_30",
+    "segment": "B2C",
+    "role": "New Homeowner",
+    "pain_points": [
+      "Unsure how to start lawn care"
+    ],
+    "personality": "Low-trust",
+    "difficulty": "easy",
+    "preferred_close": "Quarterly maintenance"
   }
 ]
-
