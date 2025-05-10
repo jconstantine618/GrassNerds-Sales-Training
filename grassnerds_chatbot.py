@@ -4,6 +4,8 @@ import sqlite3
 from pathlib import Path
 from openai import OpenAI
 from datetime import datetime
+import smtplib
+from email.message import EmailMessage
 
 # CONFIG
 PROSPECTS_FILE = "data/prospects_grassnerds.json"
@@ -11,21 +13,22 @@ DB_FILE = "leaderboard.db"
 MODEL_NAME = "gpt-4o"
 MAX_SCORE = 100
 
-# Load OpenAI API key from Streamlit Secrets
+# Email config from Streamlit secrets
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+EMAIL_SENDER = st.secrets["EMAIL_SENDER"]
+EMAIL_PASSWORD = st.secrets["EMAIL_PASSWORD"]
+SMTP_SERVER = st.secrets["SMTP_SERVER"]
+SMTP_PORT = st.secrets["SMTP_PORT"]
+
 client = OpenAI(api_key=OPENAI_API_KEY)
 
-# Initialize database
+# ---------------- DB FUNCTIONS ----------------
 def init_db():
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("""
-        CREATE TABLE IF NOT EXISTS leaderboard (
-            name TEXT,
-            score INTEGER,
-            timestamp TEXT
-        )
-    """)
+    c.execute("CREATE TABLE IF NOT EXISTS leaderboard (name TEXT, score INTEGER, timestamp TEXT)")
+    c.execute("CREATE TABLE IF NOT EXISTS chat_history (name TEXT, chat TEXT, timestamp TEXT)")
+    c.execute("CREATE TABLE IF NOT EXISTS performance_reports (name TEXT, email TEXT, avg_score REAL, summary TEXT, timestamp TEXT)")
     conn.commit()
     conn.close()
 
@@ -37,6 +40,22 @@ def add_score_to_db(name, score):
     conn.commit()
     conn.close()
 
+def add_chat_to_db(name, chat_text):
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("INSERT INTO chat_history (name, chat, timestamp) VALUES (?, ?, ?)", 
+              (name, chat_text, datetime.now().isoformat()))
+    conn.commit()
+    conn.close()
+
+def store_performance_summary(name, email, avg_score, summary):
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("INSERT INTO performance_reports (name, email, avg_score, summary, timestamp) VALUES (?, ?, ?, ?, ?)",
+              (name, email, avg_score, summary, datetime.now().isoformat()))
+    conn.commit()
+    conn.close()
+
 def get_top_scores(limit=10):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
@@ -45,15 +64,69 @@ def get_top_scores(limit=10):
     conn.close()
     return results
 
-# Load prospects
-def load_prospects():
-    prospects = json.loads(Path(PROSPECTS_FILE).read_text())
-    return prospects
+def get_all_chats():
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT name, chat, timestamp FROM chat_history ORDER BY timestamp DESC")
+    results = c.fetchall()
+    conn.close()
+    return results
 
-# Initialize
+# ---------------- FEEDBACK & EMAIL ----------------
+def get_user_feedback_summary(name):
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT score FROM leaderboard WHERE name = ?", (name,))
+    scores = [row[0] for row in c.fetchall()]
+    avg_score = round(sum(scores) / len(scores), 1) if scores else 0
+
+    c.execute("SELECT chat FROM chat_history WHERE name = ? ORDER BY timestamp DESC LIMIT 5", (name,))
+    recent_chats = c.fetchall()
+    transcript_blocks = "\n\n".join(chat[0] for chat in recent_chats)
+
+    prompt = f"""
+You are a sales performance coach. Analyze this user's last 5 sales chats and summarize:
+- Their top 2 strengths
+- Their top 2 mistakes
+Return your response in plain language.
+
+Chat transcripts:
+{transcript_blocks}
+    """
+
+    response = client.chat.completions.create(
+        model=MODEL_NAME,
+        messages=[{"role": "system", "content": prompt}]
+    )
+    feedback_summary = response.choices[0].message.content.strip()
+    return avg_score, feedback_summary
+
+def send_email_report(to_email, name, avg_score, summary):
+    msg = EmailMessage()
+    msg['Subject'] = f"GrassNerds Sales Performance Summary for {name}"
+    msg['From'] = EMAIL_SENDER
+    msg['To'] = to_email
+
+    msg.set_content(f"""
+Hi {name},
+
+Here is your GrassNerds Sales Training Performance Summary:
+
+Average Score: {avg_score}/100
+
+{summary}
+
+Thanks for continuing to grow your skills!
+— The GrassNerds Training Team
+    """)
+
+    with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT) as smtp:
+        smtp.login(EMAIL_SENDER, EMAIL_PASSWORD)
+        smtp.send_message(msg)
+
+# ---------------- STREAMLIT APP ----------------
 init_db()
 
-# Session state
 if "history" not in st.session_state:
     st.session_state.history = []
 if "selected_prospect" not in st.session_state:
@@ -61,34 +134,28 @@ if "selected_prospect" not in st.session_state:
 if "trainee_name" not in st.session_state:
     st.session_state.trainee_name = ""
 
-# Layout
 st.set_page_config(page_title="Grass Nerds Sales Training Chatbot", layout="wide")
 st.markdown("## 🗨️ Grass Nerds Sales Training Chatbot")
 
-# Sidebar: trainee name
 with st.sidebar:
     st.header("Trainee Info")
-    st.session_state.trainee_name = st.text_input("Enter your name", value=st.session_state.trainee_name)
+    st.session_state.trainee_name = st.text_input("Enter your name")
+    trainee_email = st.text_input("Your email")
 
-# Load and select prospect
-prospects = load_prospects()
+prospects = json.loads(Path(PROSPECTS_FILE).read_text())
 prospect_names = [f"{p['name']} ({p['role']})" for p in prospects]
 selected_name = st.selectbox("Select Prospect", prospect_names)
-
 selected_prospect = next((p for p in prospects if f"{p['name']} ({p['role']})" == selected_name), None)
 st.session_state.selected_prospect = selected_prospect
 
-# Show persona
 st.markdown(
     f"""
     <div style="border:1px solid #ddd;border-radius:10px;padding:1rem;background:#f8f8f8;">
         <strong>Persona:</strong> {selected_prospect['name']} ({selected_prospect['role']})
     </div>
-    """,
-    unsafe_allow_html=True,
+    """, unsafe_allow_html=True
 )
 
-# Chat display
 for speaker, text in st.session_state.history:
     icon = "💬" if speaker == "sales_rep" else "🌱"
     label = "You" if speaker == "sales_rep" else "Prospect"
@@ -110,11 +177,9 @@ if user_input:
 
     response = client.chat.completions.create(model=MODEL_NAME, messages=messages)
     reply = response.choices[0].message.content.strip()
-
     st.session_state.history.append(("prospect", reply))
     st.chat_message("Prospect", avatar="🌱").write(reply)
 
-# Sidebar: Scoring + leaderboard
 with st.sidebar:
     st.header("Score")
     if st.button("End Chat & Generate Score"):
@@ -124,51 +189,41 @@ with st.sidebar:
             transcript = "\n".join(
                 [f"{'Trainee' if s == 'sales_rep' else 'Prospect'}: {t}" for s, t in st.session_state.history]
             )
-
             eval_prompt = f"""
-            You are a sales coach. Return ONLY raw JSON — no formatting, no explanation.
-            Evaluate this sales chat and score each category from 0 to 10:
+You are a sales coach. Return ONLY raw JSON — no formatting, no explanation.
+Evaluate this sales chat and score each category from 0 to 10:
+{{
+  "rapport": 0-10,
+  "discovery": 0-10,
+  "solution_alignment": 0-10,
+  "objection_handling": 0-10,
+  "closing": 0-10,
+  "positivity": 0-10,
+  "dale_carnegie_principles": 0-5,
+  "feedback": {{
+    "rapport": "...",
+    "discovery": "...",
+    "solution_alignment": "...",
+    "objection_handling": "...",
+    "closing": "...",
+    "positivity": "...",
+    "dale_carnegie_principles": "..."
+  }}
+}}
 
-            {{
-              "rapport": 0-10,
-              "discovery": 0-10,
-              "solution_alignment": 0-10,
-              "objection_handling": 0-10,
-              "closing": 0-10,
-              "positivity": 0-10,
-              "dale_carnegie_principles": 0-5,
-              "feedback": {{
-                "rapport": "...",
-                "discovery": "...",
-                "solution_alignment": "...",
-                "objection_handling": "...",
-                "closing": "...",
-                "positivity": "...",
-                "dale_carnegie_principles": "..."
-              }}
-            }}
-
-            Chat transcript:
-            {transcript}
-            """
-
+Chat transcript:
+{transcript}
+"""
             eval_response = client.chat.completions.create(
                 model=MODEL_NAME,
                 messages=[{"role": "system", "content": eval_prompt}]
             )
-
             response_text = eval_response.choices[0].message.content.strip()
             if response_text.startswith("```"):
                 response_text = response_text.strip("`").strip()
                 if response_text.startswith("json"):
                     response_text = response_text[4:].strip()
-
-            try:
-                eval_result = json.loads(response_text)
-            except json.JSONDecodeError:
-                st.error("❌ GPT did not return valid JSON. Here's what it returned:")
-                st.code(response_text)
-                st.stop()
+            eval_result = json.loads(response_text)
 
             total_score = sum([
                 eval_result['rapport'],
@@ -180,7 +235,7 @@ with st.sidebar:
             ]) * (100 / 60)
 
             add_score_to_db(st.session_state.trainee_name, int(total_score))
-
+            add_chat_to_db(st.session_state.trainee_name, transcript)
             st.success(f"🏆 Your total score: {int(total_score)}/100")
             st.write("### Feedback")
             for k, v in eval_result['feedback'].items():
@@ -194,3 +249,24 @@ with st.sidebar:
         st.write("### 🏅 Top 10 Scores")
         for entry in scores:
             st.write(f"{entry[0]}: {entry[1]}")
+
+    st.write("### 📜 View Past Chats")
+    all_chats = get_all_chats()
+    chat_options = [f"{name} - {ts}" for name, _, ts in all_chats]
+    selected_chat = st.selectbox("Choose a chat", chat_options)
+    for name, chat, ts in all_chats:
+        if f"{name} - {ts}" == selected_chat:
+            with st.expander(f"Transcript from {ts}", expanded=True):
+                st.code(chat)
+
+    st.write("### 📈 View Performance Summary")
+    if st.button("Generate & Email Summary"):
+        if not trainee_email:
+            st.warning("Please enter your email to receive the summary.")
+        else:
+            avg, summary = get_user_feedback_summary(st.session_state.trainee_name)
+            store_performance_summary(st.session_state.trainee_name, trainee_email, avg, summary)
+            send_email_report(trainee_email, st.session_state.trainee_name, avg, summary)
+            st.success("✅ Summary emailed and saved!")
+            st.markdown(f"**📊 Avg Score:** {avg}/100")
+            st.markdown(summary)
