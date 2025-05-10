@@ -54,7 +54,7 @@ selected_label = st.sidebar.selectbox(
     prospect_labels,
     index=current_index
 )
-selected_prospect = next(p for p in prospects if f\"{p['scenarioId']} – {p['name']}\" == selected_label)
+selected_prospect = next(p for p in prospects if f"{p['scenarioId']} – {p['name']}" == selected_label)
 if selected_prospect != st.session_state.prospect:
     pick_new(selected_prospect["scenarioId"])
 
