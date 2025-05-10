@@ -1,10 +1,13 @@
 import streamlit as st
 import json
+import sqlite3
 from pathlib import Path
 from openai import OpenAI
+from datetime import datetime
 
 # CONFIG
 PROSPECTS_FILE = "data/prospects_grassnerds.json"
+DB_FILE = "leaderboard.db"
 MODEL_NAME = "gpt-4o"
 MAX_SCORE = 100
 
@@ -12,26 +15,57 @@ MAX_SCORE = 100
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 client = OpenAI(api_key=OPENAI_API_KEY)
 
+# Initialize database
+def init_db():
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS leaderboard (
+            name TEXT,
+            score INTEGER,
+            timestamp TEXT
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+def add_score_to_db(name, score):
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("INSERT INTO leaderboard (name, score, timestamp) VALUES (?, ?, ?)", 
+              (name, score, datetime.now().isoformat()))
+    conn.commit()
+    conn.close()
+
+def get_top_scores(limit=10):
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    c.execute("SELECT name, score FROM leaderboard ORDER BY score DESC, timestamp ASC LIMIT ?", (limit,))
+    results = c.fetchall()
+    conn.close()
+    return results
+
 # Load prospects
 def load_prospects():
     prospects = json.loads(Path(PROSPECTS_FILE).read_text())
     return prospects
 
-# Initialize session state
+# Initialize
+init_db()
+
+# Session state
 if "history" not in st.session_state:
     st.session_state.history = []
 if "selected_prospect" not in st.session_state:
     st.session_state.selected_prospect = None
-if "scoreboard" not in st.session_state:
-    st.session_state.scoreboard = []
 if "trainee_name" not in st.session_state:
     st.session_state.trainee_name = ""
 
-# Page layout
+# Layout
 st.set_page_config(page_title="Grass Nerds Sales Training Chatbot", layout="wide")
 st.markdown("## 🗨️ Grass Nerds Sales Training Chatbot")
 
-# Sidebar: trainee name input
+# Sidebar: trainee name
 with st.sidebar:
     st.header("Trainee Info")
     st.session_state.trainee_name = st.text_input("Enter your name", value=st.session_state.trainee_name)
@@ -41,7 +75,6 @@ prospects = load_prospects()
 prospect_names = [f"{p['name']} ({p['role']})" for p in prospects]
 selected_name = st.selectbox("Select Prospect", prospect_names)
 
-# Find and store selected prospect
 selected_prospect = next((p for p in prospects if f"{p['name']} ({p['role']})" == selected_name), None)
 st.session_state.selected_prospect = selected_prospect
 
@@ -55,7 +88,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Chat container
+# Chat display
 for speaker, text in st.session_state.history:
     icon = "💬" if speaker == "sales_rep" else "🌱"
     label = "You" if speaker == "sales_rep" else "Prospect"
@@ -65,7 +98,6 @@ user_input = st.chat_input("💬 Your message")
 if user_input:
     st.session_state.history.append(("sales_rep", user_input))
 
-    # Prompt GPT as the prospect
     prompt = (
         f"You are '{selected_prospect['name']}', a {selected_prospect['role']} in a sales training simulation. "
         f"Your hidden pain points are: {selected_prospect.get('pain_points', 'no pain points provided')}. "
@@ -76,14 +108,13 @@ if user_input:
         role = "assistant" if speaker == "prospect" else "user"
         messages.append({"role": role, "content": text})
 
-    # Get GPT-generated prospect response
     response = client.chat.completions.create(model=MODEL_NAME, messages=messages)
     reply = response.choices[0].message.content.strip()
 
     st.session_state.history.append(("prospect", reply))
     st.chat_message("Prospect", avatar="🌱").write(reply)
 
-# Sidebar: Scoring & Leaderboard
+# Sidebar: Scoring + leaderboard
 with st.sidebar:
     st.header("Score")
     if st.button("End Chat & Generate Score"):
@@ -127,8 +158,6 @@ with st.sidebar:
             )
 
             response_text = eval_response.choices[0].message.content.strip()
-
-            # Handle markdown-wrapped JSON
             if response_text.startswith("```"):
                 response_text = response_text.strip("`").strip()
                 if response_text.startswith("json"):
@@ -150,14 +179,8 @@ with st.sidebar:
                 eval_result['positivity']
             ]) * (100 / 60)
 
-            # Save to leaderboard
-            st.session_state.scoreboard.append({
-                "name": st.session_state.trainee_name,
-                "score": int(total_score)
-            })
-            st.session_state.scoreboard = sorted(st.session_state.scoreboard, key=lambda x: x["score"], reverse=True)[:10]
+            add_score_to_db(st.session_state.trainee_name, int(total_score))
 
-            # Display
             st.success(f"🏆 Your total score: {int(total_score)}/100")
             st.write("### Feedback")
             for k, v in eval_result['feedback'].items():
@@ -166,7 +189,8 @@ with st.sidebar:
     if st.button("Start New Prospect"):
         st.session_state.history = []
 
-    if st.session_state.scoreboard:
+    scores = get_top_scores()
+    if scores:
         st.write("### 🏅 Top 10 Scores")
-        for entry in st.session_state.scoreboard:
-            st.write(f"{entry['name']}: {entry['score']}")
+        for entry in scores:
+            st.write(f"{entry[0]}: {entry[1]}")
