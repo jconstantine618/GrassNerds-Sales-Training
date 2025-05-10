@@ -3,16 +3,14 @@ import json
 from pathlib import Path
 import os
 from openai import OpenAI
-from dotenv import load_dotenv
-
-# Load .env file
-load_dotenv()
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # CONFIG
 PROSPECTS_FILE = "data/prospects_grassnerds.json"
 MODEL_NAME = "gpt-4o"
 MAX_SCORE = 100
+
+# Read API key from Streamlit Secrets
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -170,4 +168,3 @@ with st.sidebar:
         st.write("### 🏅 Top 10 Scores")
         for entry in st.session_state.scoreboard:
             st.write(f"{entry['name']}: {entry['score']}")
-
