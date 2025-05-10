@@ -1,7 +1,6 @@
 import streamlit as st
 import json
 from pathlib import Path
-import os
 from openai import OpenAI
 
 # CONFIG
@@ -9,9 +8,8 @@ PROSPECTS_FILE = "data/prospects_grassnerds.json"
 MODEL_NAME = "gpt-4o"
 MAX_SCORE = 100
 
-# Read API key from Streamlit Secrets
+# Load OpenAI API key from Streamlit Cloud Secrets
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
-
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 # Load prospects
@@ -47,7 +45,7 @@ selected_name = st.selectbox("Select Prospect", prospect_names)
 selected_prospect = next((p for p in prospects if f"{p['name']} ({p['role']})" == selected_name), None)
 st.session_state.selected_prospect = selected_prospect
 
-# Show persona
+# Show persona (hide pain points)
 st.markdown(
     f"""
     <div style="border:1px solid #ddd;border-radius:10px;padding:1rem;background:#f8f8f8;">
@@ -67,65 +65,57 @@ user_input = st.chat_input("💬 Your message")
 if user_input:
     st.session_state.history.append(("sales_rep", user_input))
 
-    # Prepare prompt for prospect reply
+    # Prompt GPT as the prospect
     prompt = (
-        f"You are '{selected_prospect['name']}', a {selected_prospect['role']} in a sales training. "
-        f"Your hidden pain points: {selected_prospect.get('pain_points', 'no pain points provided')}. "
-        f"Only reveal them if the trainee asks good discovery questions. "
-        f"Stay realistic, natural, conversational."
+        f"You are '{selected_prospect['name']}', a {selected_prospect['role']} in a sales training simulation. "
+        f"Your hidden pain points are: {selected_prospect.get('pain_points', 'no pain points provided')}. "
+        f"Only reveal them if the trainee asks good discovery questions. Be realistic, friendly, and natural."
     )
     messages = [{"role": "system", "content": prompt}]
     for speaker, text in st.session_state.history:
         role = "assistant" if speaker == "prospect" else "user"
         messages.append({"role": role, "content": text})
 
-    # Get prospect response
+    # Get GPT-generated prospect response
     response = client.chat.completions.create(model=MODEL_NAME, messages=messages)
     reply = response.choices[0].message.content.strip()
 
     st.session_state.history.append(("prospect", reply))
     st.chat_message("Prospect", avatar="🌱").write(reply)
 
-# Sidebar: Score and Leaderboard
+# Sidebar: Scoring & Leaderboard
 with st.sidebar:
     st.header("Score")
     if st.button("End Chat & Generate Score"):
         if not st.session_state.trainee_name.strip():
             st.warning("Please enter your name before ending the chat.")
         else:
-            # Prepare full chat for evaluation
+            # Prepare full transcript
             transcript = "\n".join(
                 [f"{'Trainee' if s == 'sales_rep' else 'Prospect'}: {t}" for s, t in st.session_state.history]
             )
 
             eval_prompt = f"""
-            You are a sales coach. Evaluate this sales chat and score each category 0-10:
-            - Rapport building (Dale Carnegie)
-            - Needs discovery (Sandler)
-            - Solution alignment (Challenger)
-            - Objection handling
-            - Closing skill
-            - Positivity & tone
-            - Number of Dale Carnegie principles applied (out of 5)
+            You are a sales coach. Return ONLY a raw JSON object like the example below—no explanation, no formatting.
+            Evaluate this sales chat and score each category from 0 to 10:
 
-            Provide JSON like:
             {{
-                "rapport": 8,
-                "discovery": 7,
-                "solution_alignment": 6,
-                "objection_handling": 5,
-                "closing": 7,
-                "positivity": 9,
-                "dale_carnegie_principles": 3,
-                "feedback": {{
-                    "rapport": "...",
-                    "discovery": "...",
-                    "solution_alignment": "...",
-                    "objection_handling": "...",
-                    "closing": "...",
-                    "positivity": "...",
-                    "dale_carnegie_principles": "..."
-                }}
+              "rapport": 0-10,
+              "discovery": 0-10,
+              "solution_alignment": 0-10,
+              "objection_handling": 0-10,
+              "closing": 0-10,
+              "positivity": 0-10,
+              "dale_carnegie_principles": 0-5,
+              "feedback": {{
+                "rapport": "...",
+                "discovery": "...",
+                "solution_alignment": "...",
+                "objection_handling": "...",
+                "closing": "...",
+                "positivity": "...",
+                "dale_carnegie_principles": "..."
+              }}
             }}
 
             Chat transcript:
@@ -136,7 +126,15 @@ with st.sidebar:
                 model=MODEL_NAME,
                 messages=[{"role": "system", "content": eval_prompt}]
             )
-            eval_result = json.loads(eval_response.choices[0].message.content)
+
+            response_text = eval_response.choices[0].message.content.strip()
+
+            try:
+                eval_result = json.loads(response_text)
+            except json.JSONDecodeError:
+                st.error("❌ GPT did not return valid JSON. Here's what it returned:")
+                st.code(response_text)
+                st.stop()
 
             total_score = sum([
                 eval_result['rapport'],
@@ -147,14 +145,14 @@ with st.sidebar:
                 eval_result['positivity']
             ]) * (100 / 60)  # Normalize to 100
 
-            # Add to scoreboard
+            # Save to scoreboard
             st.session_state.scoreboard.append({
                 "name": st.session_state.trainee_name,
                 "score": int(total_score)
             })
             st.session_state.scoreboard = sorted(st.session_state.scoreboard, key=lambda x: x["score"], reverse=True)[:10]
 
-            # Show score and feedback
+            # Display scores + feedback
             st.success(f"🏆 Your total score: {int(total_score)}/100")
             st.write("### Feedback")
             for k, v in eval_result['feedback'].items():
@@ -163,7 +161,6 @@ with st.sidebar:
     if st.button("Start New Prospect"):
         st.session_state.history = []
 
-    # Leaderboard
     if st.session_state.scoreboard:
         st.write("### 🏅 Top 10 Scores")
         for entry in st.session_state.scoreboard:
