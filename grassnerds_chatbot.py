@@ -61,10 +61,12 @@ if user_input:
     st.session_state.history.append(("sales_rep", user_input))
 
     # Prepare prompt
-    prompt = (
-        f"You are '{selected_prospect['name']}', a {selected_prospect['role']} for Grass Nerds training. "
-        f"Your hidden pain points are: {selected_prospect.get('pain_points', 'no pain points provided')}. "
-        f"Respond realistically to the sales rep’s last message."
+   prompt = (
+    f"You are '{selected_prospect['name']}', a {selected_prospect['role']} being simulated in a sales training session. "
+    f"You have hidden needs and pain points: {selected_prospect.get('pain_points', 'no pain points provided')}, "
+    f"but you should only reveal them if the sales trainee asks good discovery questions. "
+    f"If the trainee skips ahead to pitching or closing, push back politely and ask for more details. "
+    f"Stay realistic, natural, and conversational."
     )
     messages = [{"role": "system", "content": prompt}]
     for speaker, text in st.session_state.history:
