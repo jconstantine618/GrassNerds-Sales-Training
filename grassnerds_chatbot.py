@@ -112,7 +112,7 @@ with st.sidebar:
     st.session_state.trainee_name = st.text_input("Enter your name")
 
 # Load prospects and select
-prospects = json.loads(Path(PROSPERCTS_FILE).read_text())
+prospects = json.loads(Path(PROSPECTS_FILE).read_text())
 prospect_names = [f"{p['name']} ({p['role']})" for p in prospects]
 selected_name = st.selectbox("Select Prospect", prospect_names)
 selected_prospect = next((p for p in prospects if f"{p['name']} ({p['role']})" == selected_name), None)
