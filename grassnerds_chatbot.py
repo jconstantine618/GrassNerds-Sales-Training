@@ -6,7 +6,7 @@ import os
 import datetime
 
 # ---------- CONFIG ----------
-PROSPECTS_FILE = "grassnerds_prospects.json"
+PROSPECTS_FILE = "data/prospects_grassnerds.json"
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 MODEL_NAME      = "gpt-4o-mini"  # or whatever you’re using
 MAX_SCORE       = 100
