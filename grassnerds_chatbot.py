@@ -8,7 +8,7 @@ PROSPECTS_FILE = "data/prospects_grassnerds.json"
 MODEL_NAME = "gpt-4o"
 MAX_SCORE = 100
 
-# Load OpenAI API key from Streamlit Cloud Secrets
+# Load OpenAI API key from Streamlit Secrets
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -45,7 +45,7 @@ selected_name = st.selectbox("Select Prospect", prospect_names)
 selected_prospect = next((p for p in prospects if f"{p['name']} ({p['role']})" == selected_name), None)
 st.session_state.selected_prospect = selected_prospect
 
-# Show persona (hide pain points)
+# Show persona
 st.markdown(
     f"""
     <div style="border:1px solid #ddd;border-radius:10px;padding:1rem;background:#f8f8f8;">
@@ -90,13 +90,12 @@ with st.sidebar:
         if not st.session_state.trainee_name.strip():
             st.warning("Please enter your name before ending the chat.")
         else:
-            # Prepare full transcript
             transcript = "\n".join(
                 [f"{'Trainee' if s == 'sales_rep' else 'Prospect'}: {t}" for s, t in st.session_state.history]
             )
 
             eval_prompt = f"""
-            You are a sales coach. Return ONLY a raw JSON object like the example below—no explanation, no formatting.
+            You are a sales coach. Return ONLY raw JSON — no formatting, no explanation.
             Evaluate this sales chat and score each category from 0 to 10:
 
             {{
@@ -129,6 +128,12 @@ with st.sidebar:
 
             response_text = eval_response.choices[0].message.content.strip()
 
+            # Handle markdown-wrapped JSON
+            if response_text.startswith("```"):
+                response_text = response_text.strip("`").strip()
+                if response_text.startswith("json"):
+                    response_text = response_text[4:].strip()
+
             try:
                 eval_result = json.loads(response_text)
             except json.JSONDecodeError:
@@ -143,16 +148,16 @@ with st.sidebar:
                 eval_result['objection_handling'],
                 eval_result['closing'],
                 eval_result['positivity']
-            ]) * (100 / 60)  # Normalize to 100
+            ]) * (100 / 60)
 
-            # Save to scoreboard
+            # Save to leaderboard
             st.session_state.scoreboard.append({
                 "name": st.session_state.trainee_name,
                 "score": int(total_score)
             })
             st.session_state.scoreboard = sorted(st.session_state.scoreboard, key=lambda x: x["score"], reverse=True)[:10]
 
-            # Display scores + feedback
+            # Display
             st.success(f"🏆 Your total score: {int(total_score)}/100")
             st.write("### Feedback")
             for k, v in eval_result['feedback'].items():
