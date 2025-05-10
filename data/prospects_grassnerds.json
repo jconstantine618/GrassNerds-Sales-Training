@@ -21,19 +21,18 @@
     "preferred_close": "Bundle pest + lawn contract"
   },
   {
-    "name": "Mark",
-    "role": "Small Business Owner",
-    "pain_points": ["Poor curb appeal", "Customer complaints about outdoor space"],
-    "personality": "Pragmatic, cost-focused",
-    "preferred_close": "Commercial maintenance plan"
+    "name": "Jason",
+    "role": "New Homeowner",
+    "pain_points": ["Unsure how to start", "Frustrated with DIY results"],
+    "personality": "Cautious, cost-aware",
+    "preferred_close": "Soil test + intro call"
   },
   {
-    "name": "Sara",
-    "role": "New Homeowner",
-    "pain_points": ["No experience with lawn care", "Overwhelmed by product choices"],
-    "personality": "Curious, open to help",
-    "preferred_close": "Nerdier bundle with soil test"
+    "name": "Samantha",
+    "role": "Real Estate Agent",
+    "pain_points": ["Curb appeal issues before open house", "Time-sensitive closings"],
+    "personality": "Efficient, results-driven",
+    "preferred_close": "Quick quote with photo examples"
   }
 ]
 
-]
