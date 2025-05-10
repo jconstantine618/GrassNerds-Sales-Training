@@ -1,89 +1,96 @@
 import streamlit as st
 import json
 from pathlib import Path
-from openai import OpenAI
 import os
-import datetime
+from openai import OpenAI
 
-# ---------- CONFIG ----------
+# CONFIG
 PROSPECTS_FILE = "data/prospects_grassnerds.json"
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
-MODEL_NAME      = "gpt-4o-mini"  # or whatever you’re using
-MAX_SCORE       = 100
-# -----------------------------
+MODEL_NAME = "gpt-4o-mini"
+MAX_SCORE = 100
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
-# ---------- LOAD PROSPECT ----------
-def load_prospect():
+# Load prospects
+def load_prospects():
     prospects = json.loads(Path(PROSPECTS_FILE).read_text())
-    # pull first unused; for demo we’ll just pop(0)
-    return prospects.pop(0)
+    return prospects
 
-prospect = st.session_state.get("prospect")
-if not prospect:
-    prospect = load_prospect()
-    st.session_state.prospect = prospect
+# Initialize session state
+if "history" not in st.session_state:
+    st.session_state.history = []
+if "selected_prospect" not in st.session_state:
+    st.session_state.selected_prospect = None
 
-# ---------- PAGE LAYOUT ----------
+# Page layout
 st.set_page_config(page_title="Grass Nerds Sales Training Chatbot", layout="wide")
-
-# Header
 st.markdown("## 🗨️ Grass Nerds Sales Training Chatbot")
 
-# Hide pain‑point from trainee ⚠️
+# Load and select prospect
+prospects = load_prospects()
+prospect_names = [f"{p['name']} ({p['role']})" for p in prospects]
+selected_name = st.selectbox("Select Prospect", prospect_names)
+
+# Find and store selected prospect
+selected_prospect = next((p for p in prospects if f"{p['name']} ({p['role']})" == selected_name), None)
+st.session_state.selected_prospect = selected_prospect
+
+# Show persona (hide pain points)
 st.markdown(
     f"""
     <div style="border:1px solid #ddd;border-radius:10px;padding:1rem;background:#f8f8f8;">
-        <strong>Persona:</strong> {prospect['name']} ({prospect['role']})
-        <!-- Pain point intentionally hidden; trainee must uncover via discovery questions -->
+        <strong>Persona:</strong> {selected_prospect['name']} ({selected_prospect['role']})
     </div>
     """,
     unsafe_allow_html=True,
 )
 
 # Chat container
-if "history" not in st.session_state:
-    st.session_state.history = []
-
 for speaker, text in st.session_state.history:
-    st.chat_message(speaker).write(text)
+    if speaker == "sales_rep":
+        icon = "💬"  # speech balloon
+        label = "You"
+    else:
+        icon = "🌱"  # seedling
+        label = "Prospect"
+    st.chat_message(label, avatar=icon).write(text)
 
 user_input = st.chat_input("💬 Your message")
 if user_input:
     st.session_state.history.append(("sales_rep", user_input))
 
-    # ---------- CALL OPENAI AS PROSPECT ----------
+    # Prepare prompt
     prompt = (
-        f"You are '{prospect['name']}', a {prospect['role']} for Grass Nerds training. "
-        f"Your hidden pain points are: {prospect['pain_points']}. "
-        f"Respond in a realistic way to the sales rep’s last message."
+        f"You are '{selected_prospect['name']}', a {selected_prospect['role']} for Grass Nerds training. "
+        f"Your hidden pain points are: {selected_prospect.get('pain_points', 'no pain points provided')}. "
+        f"Respond realistically to the sales rep’s last message."
     )
     messages = [{"role": "system", "content": prompt}]
     for speaker, text in st.session_state.history:
         role = "assistant" if speaker == "prospect" else "user"
         messages.append({"role": role, "content": text})
 
+    # Get response
     response = client.chat.completions.create(model=MODEL_NAME, messages=messages)
     reply = response.choices[0].message.content.strip()
 
     st.session_state.history.append(("prospect", reply))
-    st.chat_message("prospect").write(reply)
+    st.chat_message("Prospect", avatar="🌱").write(reply)
 
-# ---------- SCORE & END CHAT ----------
+# Score section
 with st.sidebar:
     st.header("Score")
     if st.button("End Chat & Generate Score"):
         st.write("Please wait while we are generating your score…")
-        # Scoring function uses hidden pain points & Dale Carnegie rubric
-        score = min(MAX_SCORE, len([msg for speaker, msg in st.session_state.history if "?" in msg]) * 10)
+        question_count = len([msg for speaker, msg in st.session_state.history if "?" in msg and speaker == "sales_rep"])
+        score = min(MAX_SCORE, question_count * 10)
         st.success(f"🏆 Your score: {score}/{MAX_SCORE}")
         st.write("### Feedback")
         st.write(
             "• Great job asking discovery questions!\n"
             "• Remember to close with a clear CTA tied to the prospect’s timeline."
         )
-        # Optionally reset for next prospect
         if st.button("Start New Prospect"):
-            st.session_state.clear()
+            st.session_state.history = []
             st.rerun()
